@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio d'Alexandra - Designeuse graphique, motion designer et experte en communication événementielle. Création d'identités visuelles, événements et animations à Lille, Roubaix."
+    />
+    <meta
+      name="keywords"
+      content="designeuse graphique, motion design, communication événementielle, création visuelle, graphisme, animation, événements, Lille, Roubaix, France, design graphique, identité visuelle"
+    />
+    <meta name="author" content="Alexandra" />
+    <meta
+      property="og:title"
+      content="Alexandra - Designeuse & Motion Designer"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio créatif d'une designeuse passionnée spécialisée en graphisme, motion design et coordination événementielle"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://d5u195w6r6k85.cloudfront.net/home/hellocaleks.MOV"
+    />
+
+    <title>
+      Alexandra - Designeuse Graphique & Motion Designer | Portfolio Créatif
+    </title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Alexandra" />
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Alexandra",
+          "jobTitle": "Designeuse Graphique et Motion Designer",
+          "description": "Experte en communication visuelle et coordination événementielle",
+          "url": window.location.href,
+          "knowsAbout": ["Design Graphique", "Motion Design", "Communication Événementielle", "Création Visuelle"],
+          "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance"
+          }
+      }
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h1>ALEXANDRA</h1>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#accueil" class="nav-link">Accueil</a></li>
+          <li><a href="#communication" class="nav-link">Com</a></li>
+          <li><a href="#evenements" class="nav-link">Events</a></li>
+          <li><a href="#graphisme" class="nav-link">Design</a></li>
+          <li><a href="#motion-design" class="nav-link">Motion</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="text-primary">CREATIVE</span>
+            <span class="text-gradient">DIRECTOR</span>
+          </h1>
+          <p class="hero-subtitle">Designer, Motion & Events</p>
+        </div>
+        <div class="hero-media">
+          <video class="hero-video" autoplay muted loop>
+            <source
+              src="https://d5u195w6r6k85.cloudfront.net/home/hellocaleks.MOV"
+              type="video/mp4"
+            />
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- Portfolio Sections -->
+    <main id="portfolio">
+      <!-- Communication Section -->
+      <section id="communication" class="portfolio-section">
+        <div class="section-header">
+          <h2>COMMUNICATION</h2>
+        </div>
+        <div class="portfolio-grid" id="communication-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Événements Section -->
+      <section id="evenements" class="portfolio-section">
+        <div class="section-header">
+          <h2>EVENTS</h2>
+        </div>
+        <div class="portfolio-grid" id="evenements-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Graphisme Section -->
+      <section id="graphisme" class="portfolio-section">
+        <div class="section-header">
+          <h2>DESIGN</h2>
+        </div>
+        <div class="portfolio-grid" id="graphisme-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Motion Design Section -->
+      <section id="motion-design" class="portfolio-section">
+        <div class="section-header">
+          <h2>MOTION</h2>
+        </div>
+        <div class="portfolio-grid" id="motion-design-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal pour affichage des médias -->
+    <div id="media-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media"></div>
+          <div class="modal-info">
+            <h3 class="modal-title"></h3>
+            <p class="modal-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="contact-section">
+      <div class="contact-content">
+        <h2>CONTACT</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <h3>Email</h3>
+            <a href="mailto:contact@alexandra-design.fr"
+              >contact@alexandra-design.fr</a
+            >
+          </div>
+          <div class="contact-item">
+            <h3>Location</h3>
+            <span>Lille, France</span>
+          </div>
+          <div class="contact-item">
+            <h3>Services</h3>
+            <span>Design • Motion • Events</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Alexandra</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

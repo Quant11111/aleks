@@ -1,0 +1,13 @@
+{
+  "name": "alexandra-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio d'Alexandra - Designeuse & Motion Designer",
+  "scripts": {
+    "start": "python3 -m http.server 3002",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop aleks",
+    "pm2:restart": "pm2 restart aleks"
+  },
+  "author": "Alexandra",
+  "license": "MIT"
+}

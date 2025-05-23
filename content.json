@@ -1,0 +1,508 @@
+[
+  {
+    "name": "",
+    "type": "communication",
+    "hideText": true,
+    "description": "",
+    "format": "portrait",
+    "videos": [
+      {
+        "name": "home/hellocaleks.MOV",
+        "description": "présentation"
+      }
+    ]
+  },
+  {
+    "name": "Closing mediumRARE - extraits d'éléments de communication",
+    "type": "communication",
+    "description": "Organisation de l'événement de clôture de la boutique mediumRARE, marquant la fin d'une aventure avec une célébration d'envergure. Plus de 1 500 personnes rassemblées, avec une large couverture sur Instagram et dans les médias.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "communication/closing-mediumRARE/affiche_closingstore_post3.jpg",
+        "description": "Affiche"
+      },
+      {
+        "name": "communication/closing-mediumRARE/invitation_closing_carre.jpg",
+        "description": "Programmation"
+      },
+      {
+        "name": "communication/closing-mediumRARE/flyer_irofashionshow_1_carre.jpg",
+        "description": "détail du défilé"
+      },
+      {
+        "name": "communication/closing-mediumRARE/flyer_irofashionshow_2_carre.jpg",
+        "description": "détail du marché de créateurs.ices"
+      }
+    ]
+  },
+  {
+    "name": "mediumRARE",
+    "type": "communication",
+    "description": "Gestion de la communication digitale pour la boutique et l'association mediumRARE : création de contenus (posts et stories Instagram), conception de brochures et élaboration de programmations. Une stratégie efficace ayant permis d'atteindre 1 900 followers en un an et demi.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "communication/mediumRARE/SERVICES_MR_artistetenue_carre.jpg",
+        "description": "les services proposés (extrait)"
+      },
+      {
+        "name": "communication/mediumRARE/brochure_ateliers_carre.jpg",
+        "description": "brochure découverte des ateliers"
+      },
+      {
+        "name": "communication/mediumRARE/EVENT_9_FEV_carre.jpg",
+        "description": "affiche nocturne boutique"
+      },
+      {
+        "name": "communication/mediumRARE/braderie_medium_carre.jpg",
+        "description": "affiche braderie"
+      },
+      {
+        "name": "communication/mediumRARE/program_atelier_carre.jpg",
+        "description": "programmation des ateliers"
+      },
+      {
+        "name": "communication/mediumRARE/CALENDRIER_DES_EVENEMENTS_carre.jpg",
+        "description": "programmation des évènements à venir"
+      },
+      {
+        "name": "communication/mediumRARE/drop_story_carre.jpg",
+        "description": "affiche pour les évènements du samedi"
+      },
+      {
+        "name": "communication/mediumRARE/post_insta_info_carre.jpg",
+        "description": "premier post explicatif de la boutique (extrait)"
+      }
+    ]
+  },
+  {
+    "name": "Union Sauvage - extraits d'éléments de communication",
+    "type": "communication",
+    "description": "Création d'éléments de communication pour l'événement Union Sauvage, co-produit avec Le Couvent – Roubaix dans le cadre de l'URBX Festival 2023. Un événement d'envergure ayant attiré 3 000 visiteurs en une journée, généré des opportunités de collaboration et bénéficié d'une large médiatisation dans toute la métropole, notamment via Lille Addict (223k abonnés).",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "communication/union-sauvage/affiche.png",
+        "description": "affiche"
+      },
+      {
+        "name": "communication/union-sauvage/programmation.PNG",
+        "description": "programmation"
+      },
+      {
+        "name": "communication/union-sauvage/marche-de-createurs.png",
+        "description": "affiche inscription atelier"
+      },
+      {
+        "name": "communication/union-sauvage/programmation.PNG",
+        "description": "programmation"
+      }
+    ]
+  },
+  {
+    "name": "Union Sauvage, URBX Festival",
+    "type": "evenement",
+    "description": "Co-production de l'événement Union Sauvage avec Le Couvent – Roubaix dans le cadre de l'URBX Festival. Une journée intense, de 10h à 2h, rythmée par un défilé de mode, un marché de créateurs.ices, des performances de street art, des showcases, des cours de danse, une conférence et des DJ sets. Le tout dans l'ambiance festive du 21 juin, sous le soleil de la Fête de la Musique, au cœur d'un ancien couvent réhabilité en espace culturel.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "evenement/union-sauvage/defile_urbx.jpg",
+        "description": "photo défilé"
+      },
+      {
+        "name": "evenement/union-sauvage/concert-urbx.jpg",
+        "description": "photo showcase"
+      },
+      {
+        "name": "evenement/union-sauvage/defile_urbx_2.jpg",
+        "description": "photo danse"
+      },
+      {
+        "name": "evenement/union-sauvage/defile_urbx_4.jpg",
+        "description": "photo défilé 2"
+      },
+      {
+        "name": "evenement/union-sauvage/conference-urbx.jpg",
+        "description": "photo conférence"
+      },
+      {
+        "name": "evenement/union-sauvage/marche_createur_urbx.jpeg",
+        "description": "photo marché de créateurs.ices"
+      }
+    ]
+  },
+  {
+    "name": "Inauguration de la boutique mediumRARE",
+    "type": "evenement",
+    "description": "Organisation de l'événement d'inauguration de mediumRARE, animé aussi bien dans la rue que dans la boutique. Au programme : défilé en extérieur, showcase de Konga, DJ set en plein air et portes ouvertes. Un moment fédérateur ayant rassemblé 250 personnes, avec la présence des médias et de la Ville de Roubaix, favorisant l'inclusion et la vie de quartier.",
+    "format": "carre",
+    "videos": [
+      {
+        "name": "evenement/inauguration-mediumrare/220914_MEDIUM_RARE_INAUGURATION_REEL_VERTICAL.mp4",
+        "description": "after movie"
+      }
+    ]
+  },
+  {
+    "name": "Défilé sauvage",
+    "type": "evenement",
+    "description": "Action de communication pour les événements et la boutique mediumRARE. Organisation d'un défilé upcycling en pleine rue de la soif à Lille, avec une piétonnisation temporaire pour l'occasion. Distribution de flyers pour la boutique et sensibilisation à la mode durable, affirmant sa place sur les runways. Un événement marquant ayant généré un partenariat avec un photographe et un bar, ainsi qu'une hausse de 78 followers. Mai 2023 rue Royal dans le quartier du Vieux Lille.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "evenement/defile-sauvage/defile_sauvage_1.jpg",
+        "description": "photo défilé"
+      },
+      {
+        "name": "evenement/defile-sauvage/defile_sauvage_2.jpg",
+        "description": "photo défilé 2"
+      },
+      {
+        "name": "evenement/defile-sauvage/defile_sauvage_3.jpg",
+        "description": "photo défilé 3"
+      }
+    ]
+  },
+  {
+    "name": "Release party du rappeur Moné",
+    "type": "evenement",
+    "description": "Dans le cadre d'un événement au Flow Lille pour la sortie de l'EP de Moné, son équipe a fait appel à nos services afin de créer une animation autour de la mode en première partie de soirée. Nous avons alors imaginé un défilé sur le rooftop avec une partie à l'extérieur et une partie à l'intérieur. L'idée était de lié l'univers hip hop avec la mode. Pour cela nous avons fait appel au rappeur Le Yes afin de faire une prestation pendant la durée du défilé. Retombées/données : Premier défilé de la vie du Flow. Collaborations sur le long terme avec le Flow et Anae Music. + 80 followers.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "evenement/release-party-mone/defile-flow.jpg",
+        "description": "photo défilé"
+      },
+      {
+        "name": "evenement/release-party-mone/defile-flow-3.jpg",
+        "description": "photo défilé 2"
+      },
+      {
+        "name": "evenement/release-party-mone/defile-flow-2.jpg",
+        "description": "photo défilé 3"
+      }
+    ]
+  },
+  {
+    "name": "Closing mediumRARE",
+    "type": "evenement",
+    "description": "Evènement de clôture de la boutique mediumRARE. Au programme, défilé de mode, concerts acoustiques, performances de danses, marché de créateurs et showcases de 12h à 2h. Retombées/données : + de 1500 personnes. Evènement relayé par des médias instagram.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "evenement/closing-mediumRARE/defile-closing-1.jpg",
+        "description": "photo 1"
+      },
+      {
+        "name": "evenement/closing-mediumRARE/defile-closing2.jpg",
+        "description": "photo 2"
+      },
+      {
+        "name": "evenement/closing-mediumRARE/defile-closing-3.PNG",
+        "description": "photo 3"
+      },
+      {
+        "name": "evenement/closing-mediumRARE/defile-closing-4.PNG",
+        "description": "photo 1"
+      }
+    ]
+  },
+  {
+    "name": "SX6 - HEX6",
+    "type": "graphisme",
+    "description": "Extrait d'éléments visuels pour la marque d'upcycling hex6.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/hex6-sx6/INSTA_SX6_3D.jpg",
+        "description": "SX6 3D"
+      },
+      {
+        "name": "graphisme/hex6-sx6/LOGO_HEX6_wacky_fond.png",
+        "description": "Logo HEX6"
+      },
+      {
+        "name": "graphisme/hex6-sx6/hex6caveutdirequoi_2.jpg",
+        "description": "infographie hex6"
+      },
+      {
+        "name": "graphisme/hex6-sx6/visu_site.jpg",
+        "description": "infographie info site"
+      },
+      {
+        "name": "graphisme/hex6-sx6/alternative-brand.png",
+        "description": "visuel"
+      },
+      {
+        "name": "graphisme/hex6-sx6/etiquette-accessoire.png",
+        "description": "étiquette"
+      },
+      {
+        "name": "graphisme/hex6-sx6/x_collage.jpg",
+        "description": "Collage x"
+      },
+      {
+        "name": "graphisme/hex6-sx6/6_collage.jpg",
+        "description": "Collage 6"
+      }
+    ]
+  },
+  {
+    "name": "Flat Design",
+    "type": "graphisme",
+    "description": "Réalisation de pictogrammes en flat design.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/flat-design/flatdesign.png",
+        "description": "pictogramme"
+      }
+    ]
+  },
+  {
+    "name": "Affiche",
+    "type": "graphisme",
+    "description": "Réalisation d'une affiche fictive pour le vol Paris - San Francisco d'Air France.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/affiche-fictive/affiche_airfrance.png",
+        "description": "affiche"
+      },
+      {
+        "name": "graphisme/affiche-fictive/affiche_airfrance_mockup.png",
+        "description": "affiche mockup"
+      }
+    ]
+  },
+  {
+    "name": "Packaging",
+    "type": "graphisme",
+    "description": "Réalisation d'un packaging fictif pour la marque de caffé Leaf.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/packaging/pack_leaf_original.jpg",
+        "description": "pack original"
+      },
+      {
+        "name": "graphisme/packaging/pack_leaf_noel.jpg",
+        "description": "pack Noël"
+      },
+      {
+        "name": "graphisme/packaging/pack_leaf_royal.jpg",
+        "description": "pack royal"
+      }
+    ]
+  },
+  {
+    "name": "Affiche de film",
+    "type": "graphisme",
+    "description": "Réalisation d'affiches de films en flat design.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/affiches-films/princesses_mononoke.png",
+        "description": "princesses mononoke"
+      },
+      {
+        "name": "graphisme/affiches-films/taxi_driver.png",
+        "description": "taxi driver"
+      },
+      {
+        "name": "graphisme/affiches-films/vikings.png",
+        "description": "viking"
+      }
+    ]
+  },
+  {
+    "name": "Graphisme humoristique",
+    "type": "graphisme",
+    "description": "Réalisation d'illustrations humoristiques sous forme de jeux de mots.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/graphisme-humoristique/ricardashian.jpg",
+        "description": "Ricard-dashian"
+      },
+      {
+        "name": "graphisme/graphisme-humoristique/jcvd.jpg",
+        "description": "Jean Claude Vente d'Armes"
+      },
+      {
+        "name": "graphisme/graphisme-humoristique/coronabilla.jpg",
+        "description": "Corona-billa"
+      }
+    ]
+  },
+  {
+    "name": "Motifs",
+    "type": "graphisme",
+    "description": "Réalisation de motifs.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/motifs/egg_motif.jpg",
+        "description": "motifs oeufs"
+      },
+      {
+        "name": "graphisme/motifs/allumettes_motif.jpg",
+        "description": "motifs allumettes"
+      },
+      {
+        "name": "graphisme/motifs/whisky_motif.jpg",
+        "description": "motifs whisky"
+      },
+      {
+        "name": "graphisme/motifs/bouteilles_motifs.jpg",
+        "description": "motifs bouteilles"
+      }
+    ]
+  },
+  {
+    "name": "Charadesign",
+    "type": "graphisme",
+    "description": "Réalisation de charadesign pour différents projets.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/charadesign/CHARADESIGN.png",
+        "description": "charadesign"
+      }
+    ]
+  },
+  {
+    "name": "Divers",
+    "type": "graphisme",
+    "description": "Réalisation de digital painting, décor, illustrations.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/Illustration/illustration_tonique.png",
+        "description": "digital painting"
+      },
+      {
+        "name": "graphisme/Illustration/wearegraphic.png",
+        "description": "we are graphic"
+      },
+      {
+        "name": "graphisme/Illustration/suffragette-city.png",
+        "description": "suffragette city"
+      },
+      {
+        "name": "graphisme/Illustration/constellations_rouge.png",
+        "description": "constellations bleu"
+      },
+      {
+        "name": "graphisme/Illustration/constellations_bleu.png",
+        "description": "constellations rouge"
+      }
+    ]
+  },
+  {
+    "name": "Photographies détournées",
+    "type": "graphisme",
+    "description": "Projet personnel de prise de vue et superposition d'image.",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/photographies-detournees/douche_mer.png",
+        "description": "photo douche de plage"
+      },
+      {
+        "name": "graphisme/photographies-detournees/aigles.jpg",
+        "description": "photo aigles"
+      },
+      {
+        "name": "graphisme/photographies-detournees/ciel.png",
+        "description": "photo ciel"
+      },
+      {
+        "name": "graphisme/photographies-detournees/usine.png",
+        "description": "photo usine"
+      },
+      {
+        "name": "graphisme/photographies-detournees/femme_ombre.png",
+        "description": "photo femme"
+      },
+      {
+        "name": "graphisme/photographies-detournees/mer.png",
+        "description": "photo mer"
+      }
+    ]
+  },
+  {
+    "name": "Showreel",
+    "type": "motion-design",
+    "description": "Medley de videos motion design 2D et 3D.",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "motion-design/showreel_vf.mp4",
+        "description": "showreel"
+      }
+    ]
+  },
+  {
+    "name": "Court métrage",
+    "type": "motion-design",
+    "description": "Réalisation de mon premier court-métrage d'animation, explorant un univers futuriste et dystopique où les humains sont connectés par la pensée et dépourvus d'émotions. L'histoire suit un singe, oublié depuis des années et vivant dans les sous-terrains de la ville. Un soir, il s'aventure dans le monde extérieur et rencontre un enfant. Ce contact provoque chez l'enfant l'émergence d'émotions, bouleversant le système des cyborgs connectés à l'humanité. Ce phénomène éphémère de ressentis s'arrête brutalement lorsque le singe est capturé par des scientifiques pour des expérimentations.",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "motion-design/Courtmetrage_Effacement.mp4",
+        "description": "court métrage"
+      }
+    ]
+  },
+  {
+    "name": "Boucle en flat design",
+    "type": "motion-design",
+    "description": "Animation de forme en flat design.",
+    "format": "carre",
+    "videos": [
+      {
+        "name": "motion-design/flatdesign-pour-anim.gif",
+        "description": "boucle en flat design"
+      }
+    ]
+  },
+  {
+    "name": "Animation de texte",
+    "type": "motion-design",
+    "description": "Focus sur une vidéo du showreel centrée sur l'animation de texte.",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "motion-design/fete_de_lanimation.mp4",
+        "description": "fête de l'animation"
+      }
+    ]
+  },
+  {
+    "name": "Stop motion",
+    "type": "motion-design",
+    "description": "Première réalisation d'une vidéo en stop motion, réalisée avec les moyens du bord. Cette vidéo, destinée à des recruteurs, raconte l'histoire d'une allumette très spéciale à la recherche de sa boîte, celle qui saura apprécier sa différence.",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "motion-design/une_allumette_cherche_sa boite.mp4",
+        "description": "stop motion"
+      }
+    ]
+  },
+  {
+    "name": "Court métrage",
+    "type": "landing",
+    "hideText": true,
+    "description": "",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "motion-design/Courtmetrage_Effacement.mp4",
+        "description": "court métrage"
+      }
+    ]
+  }
+]

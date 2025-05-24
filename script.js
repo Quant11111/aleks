@@ -98,6 +98,11 @@ function createPortfolioItem(item) {
   portfolioItem.className = `portfolio-item format-${item.format}`;
   portfolioItem.setAttribute("data-item", JSON.stringify(item));
 
+  // Ajouter une classe spécifique pour l'inauguration mediumRARE
+  if (item.name === "Inauguration de la boutique mediumRARE") {
+    portfolioItem.classList.add("inauguration-medium-rare");
+  }
+
   const mediaElement = createMediaElement(item);
   const contentElement = createContentElement(item);
   const overlayElement = createOverlayElement();

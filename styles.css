@@ -888,3 +888,26 @@ video {
   border: 2px solid var(--text-light);
   background: var(--bg-secondary);
 }
+
+/* Styles spécifiques pour l'inauguration mediumRARE dans Events */
+.inauguration-medium-rare {
+  border: 2px solid var(--text-light) !important;
+  background: var(--bg-secondary) !important;
+}
+
+/* Styles pour sections fines - aspect plus carré */
+#graphisme-grid .portfolio-item {
+  min-height: 400px;
+}
+
+/* Améliorer l'aspect des sections avec peu d'éléments */
+#graphisme-grid .portfolio-item:nth-child(n) {
+  grid-column: span 6 !important;
+  grid-row: span 2 !important;
+}
+
+/* Pour les sections avec un seul élément, le rendre plus large */
+#graphisme-grid .portfolio-item:only-child {
+  grid-column: span 8 !important;
+  grid-row: span 2 !important;
+}

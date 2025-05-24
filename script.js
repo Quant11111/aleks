@@ -201,23 +201,181 @@ function openModal(item) {
   // Vider le contenu média précédent
   modalMedia.innerHTML = "";
 
-  // Ajouter le média principal
-  if (item.photos && item.photos.length > 0) {
-    const img = document.createElement("img");
-    img.src = `${CLOUDFRONT_URL}/${item.photos[0].name}`;
-    img.alt = item.photos[0].description || item.name;
-    modalMedia.appendChild(img);
-  } else if (item.videos && item.videos.length > 0) {
-    const video = document.createElement("video");
-    video.src = `${CLOUDFRONT_URL}/${item.videos[0].name}`;
-    video.controls = true;
-    video.autoplay = true;
-    video.muted = true;
-    modalMedia.appendChild(video);
+  // Créer le carrousel si plusieurs médias
+  const totalMedia =
+    (item.photos ? item.photos.length : 0) +
+    (item.videos ? item.videos.length : 0);
+
+  if (totalMedia > 1) {
+    createCarousel(item, modalMedia);
+  } else {
+    // Ajouter le média unique
+    if (item.photos && item.photos.length > 0) {
+      const img = document.createElement("img");
+      img.src = `${CLOUDFRONT_URL}/${item.photos[0].name}`;
+      img.alt = item.photos[0].description || item.name;
+      modalMedia.appendChild(img);
+    } else if (item.videos && item.videos.length > 0) {
+      const video = document.createElement("video");
+      video.src = `${CLOUDFRONT_URL}/${item.videos[0].name}`;
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true;
+      modalMedia.appendChild(video);
+    }
   }
 
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
+}
+
+// Création du carrousel
+function createCarousel(item, container) {
+  // Combiner photos et vidéos
+  const allMedia = [];
+
+  if (item.photos) {
+    item.photos.forEach((photo) => {
+      allMedia.push({ type: "image", ...photo });
+    });
+  }
+
+  if (item.videos) {
+    item.videos.forEach((video) => {
+      allMedia.push({ type: "video", ...video });
+    });
+  }
+
+  // Créer le conteneur du carrousel
+  const carouselContainer = document.createElement("div");
+  carouselContainer.className = "carousel-container";
+
+  // Créer le conteneur des slides
+  const slidesContainer = document.createElement("div");
+  slidesContainer.className = "carousel-slides";
+
+  // Créer les slides
+  allMedia.forEach((media, index) => {
+    const slide = document.createElement("div");
+    slide.className = `carousel-slide ${index === 0 ? "active" : ""}`;
+
+    if (media.type === "image") {
+      const img = document.createElement("img");
+      img.src = `${CLOUDFRONT_URL}/${media.name}`;
+      img.alt = media.description || item.name;
+      slide.appendChild(img);
+    } else {
+      const video = document.createElement("video");
+      video.src = `${CLOUDFRONT_URL}/${media.name}`;
+      video.controls = true;
+      video.muted = true;
+      slide.appendChild(video);
+    }
+
+    slidesContainer.appendChild(slide);
+  });
+
+  // Créer les boutons de navigation
+  const prevButton = document.createElement("button");
+  prevButton.className = "carousel-nav carousel-prev";
+  prevButton.innerHTML = "‹";
+  prevButton.setAttribute("aria-label", "Image précédente");
+
+  const nextButton = document.createElement("button");
+  nextButton.className = "carousel-nav carousel-next";
+  nextButton.innerHTML = "›";
+  nextButton.setAttribute("aria-label", "Image suivante");
+
+  // Créer les indicateurs
+  const indicators = document.createElement("div");
+  indicators.className = "carousel-indicators";
+
+  allMedia.forEach((_, index) => {
+    const indicator = document.createElement("button");
+    indicator.className = `carousel-indicator ${index === 0 ? "active" : ""}`;
+    indicator.setAttribute("data-slide", index);
+    indicator.setAttribute("aria-label", `Aller à l'image ${index + 1}`);
+    indicators.appendChild(indicator);
+  });
+
+  // Assembler le carrousel
+  carouselContainer.appendChild(slidesContainer);
+  carouselContainer.appendChild(prevButton);
+  carouselContainer.appendChild(nextButton);
+  carouselContainer.appendChild(indicators);
+
+  container.appendChild(carouselContainer);
+
+  // Initialiser les événements du carrousel
+  initializeCarouselEvents(carouselContainer, allMedia.length);
+}
+
+// Initialisation des événements du carrousel
+function initializeCarouselEvents(container, totalSlides) {
+  let currentSlide = 0;
+
+  const slides = container.querySelectorAll(".carousel-slide");
+  const indicators = container.querySelectorAll(".carousel-indicator");
+  const prevButton = container.querySelector(".carousel-prev");
+  const nextButton = container.querySelector(".carousel-next");
+
+  // Fonction pour changer de slide
+  function goToSlide(index) {
+    // Arrêter toutes les vidéos
+    container.querySelectorAll("video").forEach((video) => {
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    // Mettre à jour les classes active
+    slides[currentSlide].classList.remove("active");
+    indicators[currentSlide].classList.remove("active");
+
+    currentSlide = index;
+
+    slides[currentSlide].classList.add("active");
+    indicators[currentSlide].classList.add("active");
+  }
+
+  // Navigation avec les boutons
+  prevButton.addEventListener("click", () => {
+    const newIndex = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+    goToSlide(newIndex);
+  });
+
+  nextButton.addEventListener("click", () => {
+    const newIndex = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+    goToSlide(newIndex);
+  });
+
+  // Navigation avec les indicateurs
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      goToSlide(index);
+    });
+  });
+
+  // Navigation au clavier
+  const keyboardHandler = (e) => {
+    if (modal.style.display === "block") {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevButton.click();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextButton.click();
+      }
+    }
+  };
+
+  document.addEventListener("keydown", keyboardHandler);
+
+  // Nettoyer les événements quand le modal se ferme
+  const originalCloseModal = window.closeModal;
+  window.closeModal = function () {
+    document.removeEventListener("keydown", keyboardHandler);
+    originalCloseModal();
+  };
 }
 
 // Fermeture de la modal

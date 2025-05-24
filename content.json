@@ -209,6 +209,18 @@
     ]
   },
   {
+    "name": "Passions",
+    "type": "graphisme",
+    "description": "",
+    "format": "carre",
+    "photos": [
+      {
+        "name": "graphisme/passions/passions.png",
+        "description": "2D-3D"
+      }
+    ]
+  },
+  {
     "name": "SX6 - HEX6",
     "type": "graphisme",
     "description": "Extrait d'éléments visuels pour la marque d'upcycling hex6.",

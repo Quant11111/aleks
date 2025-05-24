@@ -7,7 +7,7 @@
   --text-secondary: #cccccc;
   --text-light: #999999;
   --bg-primary: #000000;
-  --bg-secondary: #202020;
+  --bg-secondary: #1a1a1a;
   --bg-dark: #000000;
   --gradient-primary: linear-gradient(135deg, #ff0066 0%, #000000 100%);
   --gradient-accent: linear-gradient(45deg, #00ffff 0%, #ff0066 100%);
@@ -881,4 +881,10 @@ video {
 .hero-actions,
 .hero-skills {
   display: none !important;
+}
+
+/* Styles spécifiques pour la section Motion Design */
+#motion-design-grid .portfolio-item {
+  border: 2px solid var(--text-light);
+  background: var(--bg-secondary);
 }

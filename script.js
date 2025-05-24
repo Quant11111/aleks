@@ -124,23 +124,36 @@ function createMediaElement(item) {
     img.loading = "lazy";
     mediaDiv.appendChild(img);
   } else if (item.videos && item.videos.length > 0) {
-    const video = document.createElement("video");
-    video.src = `${CLOUDFRONT_URL}/${item.videos[0].name}`;
-    video.muted = true;
-    video.loop = true;
-    video.setAttribute("preload", "metadata");
+    const videoFile = item.videos[0];
+    const isGif = videoFile.name.toLowerCase().endsWith(".gif");
 
-    // Lecture au hover pour les vidéos
-    mediaDiv.addEventListener("mouseenter", () => {
-      video.play().catch(() => {}); // Ignorer les erreurs de lecture
-    });
+    if (isGif) {
+      // Traiter les GIFs comme des images
+      const img = document.createElement("img");
+      img.src = `${CLOUDFRONT_URL}/${videoFile.name}`;
+      img.alt = videoFile.description || item.name;
+      img.loading = "lazy";
+      mediaDiv.appendChild(img);
+    } else {
+      // Traiter les vraies vidéos
+      const video = document.createElement("video");
+      video.src = `${CLOUDFRONT_URL}/${videoFile.name}`;
+      video.muted = true;
+      video.loop = true;
+      video.setAttribute("preload", "metadata");
 
-    mediaDiv.addEventListener("mouseleave", () => {
-      video.pause();
-      video.currentTime = 0;
-    });
+      // Lecture au hover pour les vidéos (pas les GIFs)
+      mediaDiv.addEventListener("mouseenter", () => {
+        video.play().catch(() => {}); // Ignorer les erreurs de lecture
+      });
 
-    mediaDiv.appendChild(video);
+      mediaDiv.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+
+      mediaDiv.appendChild(video);
+    }
   }
 
   return mediaDiv;
@@ -216,12 +229,24 @@ function openModal(item) {
       img.alt = item.photos[0].description || item.name;
       modalMedia.appendChild(img);
     } else if (item.videos && item.videos.length > 0) {
-      const video = document.createElement("video");
-      video.src = `${CLOUDFRONT_URL}/${item.videos[0].name}`;
-      video.controls = true;
-      video.autoplay = true;
-      video.muted = true;
-      modalMedia.appendChild(video);
+      const videoFile = item.videos[0];
+      const isGif = videoFile.name.toLowerCase().endsWith(".gif");
+
+      if (isGif) {
+        // Traiter les GIFs comme des images
+        const img = document.createElement("img");
+        img.src = `${CLOUDFRONT_URL}/${videoFile.name}`;
+        img.alt = videoFile.description || item.name;
+        modalMedia.appendChild(img);
+      } else {
+        // Traiter les vraies vidéos
+        const video = document.createElement("video");
+        video.src = `${CLOUDFRONT_URL}/${videoFile.name}`;
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = true;
+        modalMedia.appendChild(video);
+      }
     }
   }
 
@@ -242,7 +267,8 @@ function createCarousel(item, container) {
 
   if (item.videos) {
     item.videos.forEach((video) => {
-      allMedia.push({ type: "video", ...video });
+      const isGif = video.name.toLowerCase().endsWith(".gif");
+      allMedia.push({ type: isGif ? "gif" : "video", ...video });
     });
   }
 
@@ -259,7 +285,7 @@ function createCarousel(item, container) {
     const slide = document.createElement("div");
     slide.className = `carousel-slide ${index === 0 ? "active" : ""}`;
 
-    if (media.type === "image") {
+    if (media.type === "image" || media.type === "gif") {
       const img = document.createElement("img");
       img.src = `${CLOUDFRONT_URL}/${media.name}`;
       img.alt = media.description || item.name;
@@ -321,7 +347,7 @@ function initializeCarouselEvents(container, totalSlides) {
 
   // Fonction pour changer de slide
   function goToSlide(index) {
-    // Arrêter toutes les vidéos
+    // Arrêter toutes les vraies vidéos (pas les GIFs)
     container.querySelectorAll("video").forEach((video) => {
       video.pause();
       video.currentTime = 0;

@@ -60,8 +60,17 @@
     </script>
 
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Preconnect pour Google Fonts (optimisation DNS/TLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload du fichier de contenu critique -->
+    <link rel="preload" href="./content.json" as="fetch" crossorigin />
+
+    <!-- Preload de CloudFront pour la vidéo hero -->
+    <link rel="preconnect" href="https://d5u195w6r6k85.cloudfront.net" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@300;400;500&display=swap"
       rel="stylesheet"

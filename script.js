@@ -146,6 +146,7 @@ function createMediaElement(item) {
       video.muted = true;
       video.loop = true;
       video.setAttribute("preload", "metadata");
+      video.setAttribute("playsinline", ""); // Requis pour l'affichage mobile
 
       // Lecture au hover pour les vidéos (pas les GIFs)
       mediaDiv.addEventListener("mouseenter", () => {
@@ -250,6 +251,7 @@ function openModal(item) {
         video.controls = true;
         video.autoplay = true;
         video.muted = true;
+        video.setAttribute("playsinline", ""); // Requis pour l'affichage mobile
         modalMedia.appendChild(video);
       }
     }
@@ -300,6 +302,7 @@ function createCarousel(item, container) {
       video.src = `${CLOUDFRONT_URL}/${media.name}`;
       video.controls = true;
       video.muted = true;
+      video.setAttribute("playsinline", ""); // Requis pour l'affichage mobile
       slide.appendChild(video);
     }
 

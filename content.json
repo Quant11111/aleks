@@ -7,8 +7,68 @@
     "format": "portrait",
     "videos": [
       {
-        "name": "home/hellocaleks.MOV",
+        "name": "home/hellocaleks.mp4",
         "description": "présentation"
+      }
+    ]
+  },
+  {
+    "name": "Studiohex6 1",
+    "type": "communication",
+    "description": "Vidéo pour la communication d'hex6studio, à destination d'Instagram et Tik-Tok",
+    "format": "portrait",
+    "videos": [
+      {
+        "name": "communication/studiohex6_1.mp4",
+        "description": "communication studiohex6"
+      }
+    ]
+  },
+  {
+    "name": "Studiohex6 2",
+    "type": "communication",
+    "description": "Vidéo pour la communication d'hex6studio, à destination d'Instagram et Tik-Tok",
+    "format": "portrait",
+    "videos": [
+      {
+        "name": "communication/studiohex6_2.mp4",
+        "description": "communication studiohex6"
+      }
+    ]
+  },
+  {
+    "name": "MediumRARE 1",
+    "type": "communication",
+    "description": "Vidéo à destination d'Instagram pour mediumRARE, concept store et association d'événementielle culturelles",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "communication/mediumrare_1.mp4",
+        "description": "communication MediumRARE"
+      }
+    ]
+  },
+  {
+    "name": "MediumRARE 2",
+    "type": "communication",
+    "description": "Vidéo à destination d'Instagram pour mediumRARE",
+    "format": "paysage",
+    "videos": [
+      {
+        "name": "communication/mediumrare_2.mp4",
+        "description": "communication MediumRARE"
+      }
+    ]
+  },
+  {
+    "name": "Interview 2019",
+    "type": "communication",
+    "description": "Interview réalisée dans le cadre de mon stage chez WTPL en 2019 (avant l'arrivée des Reels).",
+    "format": "portrait",
+    "videos": [
+      {
+        "name": "communication/2019_stage_chez_wtpl_1.mp4",
+        "description": "Interview 2019"
       }
     ]
   },

@@ -59,7 +59,260 @@
       }
     </script>
 
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Critical CSS Inline - Above-the-fold only -->
+    <style>
+      /* Variables CSS critiques */
+      :root {
+        --primary-color: #ffffff;
+        --secondary-color: #ff0066;
+        --accent-color: #00ffff;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-light: #999999;
+        --bg-primary: #000000;
+        --bg-secondary: #000000;
+        --gradient-primary: linear-gradient(135deg, #ff0066 0%, #000000 100%);
+        --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --font-primary: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-display: "Playfair Display", serif;
+      }
+
+      /* Reset critique */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.2;
+      }
+
+      /* Typographie critique */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 0.9;
+      }
+
+      h1 {
+        font-size: clamp(4rem, 8vw, 12rem);
+      }
+
+      p {
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        line-height: 1.4;
+        opacity: 0.8;
+      }
+
+      /* Navigation critique */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+      }
+
+      .nav-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 1rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo h1 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: var(--text-primary);
+        margin: 0;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 3rem;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 300;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .bar {
+        width: 20px;
+        height: 1px;
+        background: var(--text-primary);
+        margin: 4px 0;
+        transition: var(--transition);
+      }
+
+      /* Hero Section critique */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 3rem;
+        z-index: 2;
+      }
+
+      .hero-title {
+        margin-bottom: 2rem;
+        line-height: 0.8;
+      }
+
+      .text-primary {
+        color: var(--text-primary);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .text-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-style: italic;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        max-width: 300px;
+        opacity: 0.7;
+        line-height: 1.4;
+      }
+
+      .hero-media {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(30%) contrast(1.2);
+      }
+
+      .hero-video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 3rem;
+        right: 3rem;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        color: var(--text-light);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* Mobile responsive critique */
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 1rem 2rem;
+        }
+
+        .nav-menu {
+          position: fixed;
+          left: -100%;
+          top: 60px;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.95);
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          padding: 2rem 0;
+          gap: 2rem;
+          backdrop-filter: blur(20px);
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
+
+        .hero-text {
+          padding: 2rem;
+          order: 2;
+        }
+
+        .hero-media {
+          order: 1;
+        }
+      }
+    </style>
 
     <!-- Preconnect pour Google Fonts (optimisation DNS/TLS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -110,9 +363,17 @@
           <p class="hero-subtitle">Designer, Motion & Events</p>
         </div>
         <div class="hero-media">
-          <video class="hero-video" autoplay muted loop>
+          <video
+            class="hero-video"
+            id="heroVideo"
+            poster="https://d5u195w6r6k85.cloudfront.net/home/i_am_alexandra_poster.webp"
+            preload="none"
+            muted
+            loop
+            playsinline
+          >
             <source
-              src="https://d5u195w6r6k85.cloudfront.net/home/hellocaleks.MOV"
+              src="https://d5u195w6r6k85.cloudfront.net/home/i_am_alexandra.mp4"
               type="video/mp4"
             />
           </video>
@@ -206,6 +467,15 @@
         <p>&copy; 2025 Alexandra</p>
       </div>
     </footer>
+
+    <!-- Chargement différé du CSS complet (non-bloquant) -->
+    <link
+      rel="stylesheet"
+      href="styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
 
     <script src="script.js"></script>
   </body>

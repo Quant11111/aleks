@@ -11,6 +11,7 @@ const modalClose = document.querySelector(".modal-close");
 // Initialisation
 document.addEventListener("DOMContentLoaded", function () {
   initializeNavigation();
+  initializeHeroVideo(); // Charger la vidéo hero de manière optimisée
   loadPortfolioData();
   initializeScrollAnimations();
   initializeModal();
@@ -49,6 +50,61 @@ function initializeNavigation() {
 
     lastScrollTop = scrollTop;
   });
+}
+
+// Chargement optimisé de la vidéo hero
+function initializeHeroVideo() {
+  const heroVideo = document.getElementById("heroVideo");
+
+  if (!heroVideo) return;
+
+  // Stratégie de chargement progressif
+  if ("IntersectionObserver" in window) {
+    // Utiliser IntersectionObserver pour détecter quand la vidéo est visible
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // La vidéo est visible, la charger et la lire
+            const video = entry.target;
+
+            // Charger la vidéo
+            if (video.readyState < 2) {
+              video.load();
+            }
+
+            // Lire la vidéo dès que possible
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+              playPromise.catch((error) => {
+                // Autoplay bloqué par le navigateur (rare avec muted)
+                console.log("Autoplay bloqué:", error);
+              });
+            }
+
+            // Arrêter d'observer une fois lancée
+            videoObserver.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.25, // Lancer quand 25% de la vidéo est visible
+        rootMargin: "50px" // Commencer à charger 50px avant d'être visible
+      }
+    );
+
+    videoObserver.observe(heroVideo);
+  } else {
+    // Fallback pour navigateurs sans IntersectionObserver
+    // Attendre un peu que le contenu critique soit rendu
+    setTimeout(() => {
+      heroVideo.load();
+      heroVideo.play().catch(() => {
+        console.log("Autoplay non supporté");
+      });
+    }, 500);
+  }
 }
 
 // Chargement des données du portfolio

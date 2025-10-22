@@ -968,19 +968,21 @@ video {
   background: var(--bg-secondary) !important;
 }
 
-/* Styles pour sections fines - aspect plus carré */
-#graphisme-grid .portfolio-item {
-  min-height: 400px;
-}
+/* Styles pour sections fines - aspect plus carré (Desktop uniquement) */
+@media (min-width: 769px) {
+  #graphisme-grid .portfolio-item {
+    min-height: 400px;
+  }
 
-/* Améliorer l'aspect des sections avec peu d'éléments */
-#graphisme-grid .portfolio-item:nth-child(n) {
-  grid-column: span 6 !important;
-  grid-row: span 2 !important;
-}
+  /* Améliorer l'aspect des sections avec peu d'éléments */
+  #graphisme-grid .portfolio-item:nth-child(n) {
+    grid-column: span 6 !important;
+    grid-row: span 2 !important;
+  }
 
-/* Pour les sections avec un seul élément, le rendre plus large */
-#graphisme-grid .portfolio-item:only-child {
-  grid-column: span 8 !important;
-  grid-row: span 2 !important;
+  /* Pour les sections avec un seul élément, le rendre plus large */
+  #graphisme-grid .portfolio-item:only-child {
+    grid-column: span 8 !important;
+    grid-row: span 2 !important;
+  }
 }

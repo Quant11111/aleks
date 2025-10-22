@@ -215,6 +215,9 @@ function createMediaElement(item) {
       });
 
       mediaDiv.appendChild(video);
+
+      // Ajouter un placeholder visuel pour les vidéos sans photos (mobile)
+      mediaDiv.classList.add("video-only");
     }
   }
 
@@ -234,6 +237,16 @@ function createContentElement(item) {
 
   contentDiv.appendChild(title);
   contentDiv.appendChild(description);
+
+  // Ajouter un indicateur visuel pour les éléments vidéo-seulement (mobile)
+  if ((!item.photos || item.photos.length === 0) && item.videos && item.videos.length > 0) {
+    const videoFile = item.videos[0];
+    const isGif = videoFile.name.toLowerCase().endsWith(".gif");
+
+    if (!isGif) {
+      contentDiv.classList.add("video-only-content");
+    }
+  }
 
   return contentDiv;
 }

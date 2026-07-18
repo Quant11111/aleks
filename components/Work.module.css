@@ -1,0 +1,31 @@
+.intro {
+  padding-top: var(--section-y);
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+  background: var(--bg-primary);
+}
+.eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.heading em {
+  font-style: italic;
+}
+.lead {
+  margin-top: 2rem;
+  max-width: 52ch;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+}

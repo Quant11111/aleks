@@ -1,0 +1,71 @@
+.section {
+  padding-block: var(--section-y);
+  background: var(--bg-primary);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.statement {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 5.2vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+}
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.lineInner {
+  display: block;
+  will-change: transform;
+}
+.accent {
+  font-style: italic;
+}
+
+.footer {
+  margin-top: clamp(3rem, 6vw, 5.5rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 62ch;
+  margin-left: auto;
+}
+.bio {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.75;
+}
+.signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text-light);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.signature::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--secondary-color);
+}
+
+@media (min-width: 900px) {
+  .footer {
+    grid-template-columns: 0.4fr 1fr;
+    align-items: start;
+    gap: 3rem;
+  }
+}

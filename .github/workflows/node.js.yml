@@ -1,0 +1,54 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Package build
+        run: tar czf nextjs-build.tar.gz .next/ package.json package-lock.json public/
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: nextjs-build.tar.gz
+          retention-days: 1
+
+  deploy:
+    runs-on: [self-hosted]
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build
+
+      - name: Extract build
+        run: tar xzf nextjs-build.tar.gz && rm nextjs-build.tar.gz
+
+      - name: Install dependencies
+        run: |
+          source ~/.nvm/nvm.sh
+          npm ci --omit=dev
+
+      - name: Restart pm2
+        run: |
+          source ~/.nvm/nvm.sh
+          pm2 restart alexandra || pm2 start npm --name "alexandra" -- start

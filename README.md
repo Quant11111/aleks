@@ -1,53 +1,83 @@
-# Portfolio Alexandra
+# Alexandra — Portfolio (refonte)
 
-Portfolio créatif d'Alexandra - Designeuse graphique, motion designer et experte en communication événementielle.
+Refonte du portfolio d'[alexandra.saas-e.com](https://alexandra.saas-e.com) : une
+expérience éditoriale « magazine de mode sombre », animée au scroll, inspirée du
+rendu de [huts.com](https://huts.com). **La forme change, le fond est conservé** —
+mêmes couleurs, même police, même CDN, mêmes médias, même contenu.
 
-## 🚀 Utilisation
+## Stack
 
-### Développement local
+| Choix | Raison |
+| --- | --- |
+| **Next.js 15** (App Router, TypeScript) | SSG (SEO béton, pages statiques), `next/image`, écosystème React pour l'animation. Rendu 100 % statique. |
+| **Framer Motion** | Reveals au scroll, révélations ligne-par-ligne, parallax, compteurs, crossfade modal. |
+| **Lenis** | Smooth scroll à inertie (le « toucher » façon site de référence). |
+| **CSS Modules + variables** | Fidélité totale à la marque (couleurs exactes, `border-radius: 0`), zéro dépendance UI. |
+
+> **Alternative envisagée :** Astro (zéro-JS) serait plus léger pour un site
+> vitrine, mais l'expérience scroll très animée est nativement React/Framer Motion.
+> Next.js reste le meilleur compromis expérience premium + SEO.
+
+## Démarrer
 
 ```bash
-./start.sh
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de production
+npm run start    # sert le build
 ```
 
-Ouvrez http://localhost:3002
+## Contraintes du cahier des charges — statut
 
-### Production avec PM2
+- ✅ **Couleurs conservées** : `#000` / `#fff` / accent magenta `#ff0066` (+ `#ff4d8a`), gris `#d4d4d4`/`#a3a3a3`.
+- ✅ **Polices conservées** : `Inter` (corps) + `Playfair Display` (display, italique dégradé) — chargées via `next/font` (auto-hébergées, zéro requête externe, pas de CLS).
+- ✅ **`border-radius: 0`** partout (`--radius: 0`), angles droits.
+- ✅ **Expérience originale + animations scroll** : smooth scroll, reveals masqués, parallax hero/projets, compteurs, transitions modal.
+- ✅ **SEO + chargement images** : métadonnées complètes, JSON-LD `Person`, `sitemap.xml`, `robots.txt`, OpenGraph ; images servies en **AVIF/WebP** redimensionnées via `next/image`, lazy-loading, aspect-ratio (anti-CLS).
+- ✅ **CDN CloudFront conservé** : `d5u195w6r6k85.cloudfront.net`, mêmes médias (voir `lib/content.json`).
+- ✅ **Contenu conservé, mis en forme** : ~30 projets, 4 catégories ; sections inédites (manifeste, chiffres d'impact, projets phares) dérivées du contenu existant.
+- ✅ **Responsive** : testé 390 / 768 / 1080 / 1440 px, menu mobile plein écran.
+- ✅ **Accessibilité** : focus visibles, skip-link, focus-trap modal, navigation clavier, `prefers-reduced-motion` (désactive Lenis + animations).
 
-```bash
-# Créer le dossier logs
-mkdir -p logs
+## Architecture
 
-# Démarrer avec PM2
-pm2 start ecosystem.config.js
-
-# Redémarrer
-pm2 restart aleks
+```
+app/
+  layout.tsx        Polices, métadonnées SEO, JSON-LD, providers (SmoothScroll, Modal, Nav)
+  page.tsx          Composition des sections
+  globals.css       Design system (tokens de marque, reset, utilitaires)
+  sitemap.ts robots.ts manifest.ts   SEO / PWA
+components/
+  SmoothScroll.tsx  Provider Lenis + API scroll (ancres, verrou modal)
+  Nav.tsx           Navigation auto-hide + scroll-spy + menu mobile
+  Hero.tsx          Hero ciné (vidéo plein-cadre, reveal typo, parallax)
+  Manifesto.tsx     Manifeste révélé ligne par ligne
+  Stats.tsx         Chiffres d'impact (compteurs animés)
+  Work.tsx / CategoryShowcase.tsx / ProjectCard.tsx   Grille magazine + cartes
+  FeaturedProject.tsx  Bloc projet phare plein-cadre en parallax
+  Contact.tsx       Footer éditorial (contact, services)
+  ProjectModal.tsx / ModalProvider.tsx   Modal + carrousel accessibles
+  Media.tsx / LazyVideo.tsx   Primitives image (next/image) & vidéo (lazy)
+  Reveal.tsx / LineReveal.tsx / Counter.tsx   Primitives d'animation
+lib/
+  portfolio.ts      Types, sélecteurs, helpers CDN, métadonnées éditoriales
+  content.json      Contenu source (conservé du site actuel)
+  anim.ts           Variants & easings partagés
 ```
 
-## 📁 Structure
+## Ajouter / modifier un projet
 
-- `index.html` - Page principale
-- `styles.css` - Design sombre style magazine
-- `script.js` - Interactivité
-- `content.json` - Contenu du portfolio
-- `ecosystem.config.js` - Configuration PM2
+Éditer `lib/content.json` (même schéma que le site actuel : `name`, `type`,
+`description`, `format`, `photos[]` / `videos[]` pointant vers un chemin CloudFront).
+Les catégories, grilles et modals se régénèrent automatiquement.
 
-## 🎨 Design
+## Déploiement — note importante sur les images
 
-Design sombre style magazine de mode avec grille asymétrique et focus sur le visuel.
+`next/image` optimise les médias CloudFront à la volée (AVIF/WebP). Cela nécessite
+un **hébergement Node** (Vercel, Netlify, Node, Docker…) — recommandé, c'est ce qui
+remplit l'exigence « optimiser le chargement des images ».
 
-## 📱 Responsive
-
-Compatible mobile, tablette et desktop.
-
-## 🔧 Configuration
-
-- **Port** : 3002
-- **Serveur** : Python HTTP server
-- **PM2** : Instance "aleks"
-- **CDN** : CloudFront pour les médias
-
----
-
-© 2024 Alexandra
+Pour un **export statique** (fichiers seuls, comme l'hébergement actuel), ajouter
+`output: "export"` + `images.unoptimized: true` dans `next.config.mjs` : les images
+sont alors servies directement depuis CloudFront (toujours lazy + anti-CLS, mais
+sans redimensionnement par Next).

@@ -71,13 +71,19 @@ lib/
 `description`, `format`, `photos[]` / `videos[]` pointant vers un chemin CloudFront).
 Les catégories, grilles et modals se régénèrent automatiquement.
 
-## Déploiement — note importante sur les images
+## Déploiement — images & ressources serveur
 
-`next/image` optimise les médias CloudFront à la volée (AVIF/WebP). Cela nécessite
-un **hébergement Node** (Vercel, Netlify, Node, Docker…) — recommandé, c'est ce qui
-remplit l'exigence « optimiser le chargement des images ».
+Par défaut, `images.unoptimized: true` (dans `next.config.mjs`) : les médias sont
+servis **directement depuis CloudFront**, sans ré-encodage côté serveur. C'est le
+bon choix sur un **VPS modeste** — l'optimisation AVIF/WebP à la volée via `sharp`
+est très gourmande en CPU (elle saturait le VPS et provoquait des crash-loops
+`TimeoutError`). Les images gardent lazy-loading + aspect-ratio (anti-CLS) ; le CDN
+fait le reste.
 
-Pour un **export statique** (fichiers seuls, comme l'hébergement actuel), ajouter
-`output: "export"` + `images.unoptimized: true` dans `next.config.mjs` : les images
-sont alors servies directement depuis CloudFront (toujours lazy + anti-CLS, mais
-sans redimensionnement par Next).
+Sur un **hébergement costaud** (Vercel, VPS ≥ 2 vCPU dédiés), on peut ré-activer
+l'optimisation Next : `unoptimized: false` + décommenter `formats`/`deviceSizes`.
+
+**Ne pas builder sur un petit VPS.** `next build` est lourd (CPU/RAM). Compiler
+plutôt sur un runner GitHub-hosted (ou une machine dédiée) et n'expédier que le
+résultat (`.next`, `public`, `package.json`, `node_modules` de prod). Un runner
+self-hosted qui build sur la même machine que le serveur de prod pinne le CPU.

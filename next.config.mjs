@@ -5,9 +5,16 @@ const nextConfig = {
   compress: true,
 
   images: {
-    // Optimisation via next/image tout en CONSERVANT le CDN CloudFront d'Alexandra.
-    // Next sert des AVIF/WebP redimensionnés depuis les médias sources CloudFront.
-    formats: ["image/avif", "image/webp"],
+    // IMPORTANT (VPS léger) : on N'optimise PAS les images côté serveur.
+    // L'encodage AVIF/WebP à la volée via `sharp` est extrêmement gourmand en
+    // CPU et faisait saturer le VPS (crash-loop TimeoutError). Les médias sont
+    // déjà sur un CDN rapide (CloudFront) : on les sert directement.
+    // -> zéro CPU image sur le serveur, tout en gardant lazy-loading + aspect-ratio.
+    //
+    // Pour ré-activer l'optimisation Next sur un hébergement plus costaud
+    // (Vercel, VPS ≥ 2 vCPU dédiés) : passer `unoptimized: false` et décommenter
+    // `formats`/`deviceSizes` ci-dessous.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -15,8 +22,9 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-    deviceSizes: [360, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
-    imageSizes: [96, 160, 240, 320, 400, 480],
+    // formats: ["image/avif", "image/webp"],
+    // deviceSizes: [360, 480, 640, 768, 1024, 1280, 1536, 1920, 2560],
+    // imageSizes: [96, 160, 240, 320, 400, 480],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours
   },
 
